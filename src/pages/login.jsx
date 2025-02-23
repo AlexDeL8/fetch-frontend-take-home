@@ -20,7 +20,6 @@ const Login = () => {
             return
         }
         try {
-            console.log(`${loginName} - ${loginEmail}`)
             const response = await fetch("https://frontend-take-home-service.fetch.com/auth/login", {
                 method: "POST",
                 headers: {
@@ -31,18 +30,15 @@ const Login = () => {
                     email: loginEmail
                 })
             })
-
             if (response.status !== 200) {
-                console.log("ERROR")
                 throw new Error('Network response was not ok');
             }
             navigateTo("/search")
         } catch (error) {
-            console.log(error)
             setLoginError(error.message);
             return
         } finally {
-          console.log("finally hit")
+          console.log("login finally")
         }
     }
 

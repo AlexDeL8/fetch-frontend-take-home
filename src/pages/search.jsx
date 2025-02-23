@@ -1,6 +1,10 @@
 import React from 'react';
 
+import Navbar from '../components/Navbar';
+
 const Search = () => {
-    return <div>This is the search page</div>
+    return <div>
+        <Navbar />
+    </div>
 }
 export default Search;
