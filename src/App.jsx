@@ -1,17 +1,19 @@
 import React from 'react';
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router";
 import Home from './pages/home';
-
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Home />
-    },
-])
+import Login from './pages/login';
+import Search from './pages/search';
+import Favorites from './pages/favorites';
+import Error from './pages/error';
 
 const App = () => {
     return (
-        <RouterProvider router={router} />
+        <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='login' element={<Login />} />
+            <Route path='search' element={<Search />} />
+            <Route path='favorites' element={<Favorites />} />
+        </Routes>
     );
 };
 export default App;
