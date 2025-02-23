@@ -9,7 +9,7 @@ const Home = () => {
         <div className="mainContainer">
             <Heading size={1} text="Welcome to Doggle" />
             <Heading size={2} text="Where you find YOUR dog!" />
-            <Link to="login"><Button isPrimary={true} text="Login" onClick={() => {console.log("LOGIN CLICK")}}></Button></Link>
+            <Link to="login"><Button isPrimary={true} text="Login"></Button></Link>
         </div>
     )
 }
