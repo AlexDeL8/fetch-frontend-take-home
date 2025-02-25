@@ -1,4 +1,21 @@
+.routerLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.routerLink:hover {
+    cursor: pointer;
+}
+
 .errorMessage {
     color: blue;
     font-weight: bold;
+}
+
+#navbarList {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
 }

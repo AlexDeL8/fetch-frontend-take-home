@@ -3,15 +3,14 @@ import { Link } from 'react-router'
 
 import Button from './Button'
 
-const Navbar = () => {
+const Navbar = ({ activeTab, switchTab }) => {
     const handleLogout = async () => {
         try {
             const response = await fetch("https://frontend-take-home-service.fetch.com/auth/logout", {
                 method: "POST",
-                credentials: 'same-origin',
+                credentials: "include",
             })
             if (response.status !== 200) {
-                console.log(response)
                 throw new Error('Network response was not ok')
             }
             navigateTo("/")
@@ -24,8 +23,30 @@ const Navbar = () => {
     }
 
     return (
-    <div id="navBarContainer">
-        <Link to="/"><Button isPrimary={false} text="Logout" onClick={() => handleLogout()}></Button></Link>
+    <div id="navbarContainer">
+        <ul id="navbarList">
+            <Link className="routerLink" to="search">
+                <li 
+                    className={activeTab === "search" ? "navItem activeTab" : "navItem"}
+                    onClick={() => switchTab('search')}
+                >Search</li>
+            </Link>
+            <Link className="routerLink" to="favorites">
+                <li 
+                    className={activeTab === "favorites" ? "navItem activeTab" : "navItem"}
+                    onClick={() => switchTab('favorites')}
+                >Favorites</li>
+            </Link>
+            <li className="navItem">
+                <Link className="routerLink" to="/">
+                    <Button 
+                        isPrimary={false} 
+                        text="Logout" 
+                        onClick={() => handleLogout()}>
+                    </Button>
+                </Link>
+            </li>
+        </ul>
     </div>
     )
 }

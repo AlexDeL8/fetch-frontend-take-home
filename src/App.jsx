@@ -5,14 +5,17 @@ import Login from './pages/login';
 import Search from './pages/search';
 import Favorites from './pages/favorites';
 import Error from './pages/error';
+import Dashboard from './pages/dashboard';
 
 const App = () => {
     return (
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='login' element={<Login />} />
-            <Route path='search' element={<Search />} />
-            <Route path='favorites' element={<Favorites />} />
+            <Route path='dashboard' element={<Dashboard />} >
+                <Route path='search' element={<Search />} />
+                <Route path='favorites' element={<Favorites />} />
+            </Route>
         </Routes>
     );
 };

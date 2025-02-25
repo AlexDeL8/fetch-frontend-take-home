@@ -22,6 +22,7 @@ const Login = () => {
         try {
             const response = await fetch("https://frontend-take-home-service.fetch.com/auth/login", {
                 method: "POST",
+                credentials: "include",
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -33,7 +34,7 @@ const Login = () => {
             if (response.status !== 200) {
                 throw new Error('Network response was not ok');
             }
-            navigateTo("/search")
+            navigateTo("/dashboard")
         } catch (error) {
             setLoginError(error.message);
             return
@@ -44,7 +45,7 @@ const Login = () => {
 
     return (
         <div id="loginContainer">
-            <Link to="/">&lt; Go Back</Link>
+            <Link className="routerLink" to="/">&lt; Go Back</Link>
             <Heading size={2} text="Enter your login information" />
             <Input 
                 labelText="Name: " 
