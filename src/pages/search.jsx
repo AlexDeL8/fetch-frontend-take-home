@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import Heading from '../components/Heading';
+
+import DogItem from '../components/DogItem';
 
 const Search = ({ setError }) => {
     const [pageNumber, setPageNumber] = useState(1)
@@ -15,7 +18,6 @@ const Search = ({ setError }) => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-
                     signal: abortController.signal
                 })
                 if (!response.ok) {
@@ -69,7 +71,21 @@ const Search = ({ setError }) => {
     }, [pageNumber])
 
     return (
-        <div>Search</div>
+        <div className='dashboardContainer'>
+            <div className='dashboardFilter'>Filters</div>
+            <div className='resultsContainer'>
+                <Heading size={2} text='Results:' />
+                {/* <DogItems dogs={dogObjs} /> */}
+                <ul className='dogsList'>
+                    {dogObjs.map((dog) => {
+                        return (<DogItem key={dog.id} dogObj={dog} />)
+                    })}
+                </ul>
+            </div>
+            <div className='paginationContainer'>
+                <div className=''>1, 2, 3, ... 10</div>
+            </div>
+        </div>
     )
 }
 export default Search;

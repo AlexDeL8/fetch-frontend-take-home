@@ -4,7 +4,6 @@ import Home from './pages/home';
 import Login from './pages/login';
 import Search from './pages/search';
 import Favorites from './pages/favorites';
-import Error from './pages/error';
 import Dashboard from './pages/dashboard';
 
 const App = () => {

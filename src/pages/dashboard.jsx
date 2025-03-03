@@ -7,14 +7,10 @@ import ErrorText from '../components/ErrorText'
 const Dashboard = () => {
     const [activeTab, setActiveTab] = useState('search')
     const [dashboardError, setDashboardError] = useState(null)
-    const userInfo = {
-        userName: '',
-        userEmail: '',
-        userFavorites: []
-    }
 
     return (
         <>
+        {/* TODO: Need to update how tabs are switched using React Router */}
             <Navbar activeTab={activeTab} switchTab={setActiveTab} />
             <ErrorText message={dashboardError} />
             { activeTab === 'search' ? <Search setError={setDashboardError} /> : 
