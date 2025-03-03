@@ -1,3 +1,5 @@
+import './components.css'
+
 const Heading = ({ size, text }) => {
     switch (size) {
         case 1:

@@ -1,3 +1,5 @@
+import './components.css'
+
 const Button = ({ isPrimary, text, onClick = null }) => {
     return onClick === null ? (
         <button className={isPrimary ? "primaryBtn" : "secondaryBtn"}>{text}</button>

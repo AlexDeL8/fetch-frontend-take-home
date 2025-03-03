@@ -1,5 +1,8 @@
+import './styles.css'
+
 import React from 'react';
 import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router";
+
 import Home from './pages/home';
 import Login from './pages/login';
 import Search from './pages/search';

@@ -19,3 +19,83 @@
     justify-content: space-around;
     align-content: center;
 }
+
+/**************************/
+/* Heading */
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.85rem;
+    font-weight: 550;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+/**************************/
+/* Input */
+label {
+    font-weight: bold;
+}
+
+input {
+    border-radius: 8px;
+    border: 1px solid gray;
+    padding: 8px 5px;
+    font-size: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    width: 100%;
+}
+
+/**************************/
+/* Button */
+button {
+    border-radius: 21px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.primaryBtn {
+    background-color: #035D79;
+    color: white;
+    border: 2px solid white;
+}
+
+.primaryBtn:hover {
+    background-color: white;
+    color: #035D79;
+    border: 2px solid #035D79;
+}
+
+.primaryBtn:active {
+    background-color: #023949;
+    color: white;
+    border: 2px solid #035D79;
+}
+
+.secondaryBtn {
+    background-color: white;
+    color: #035D79;
+    border: 2px solid #035D79;
+}
+
+.secondaryBtn:hover {
+    background-color: #035D79;
+    color: white;
+    border: 2px solid white;
+}
+
+.secondaryBtn:active {
+    background-color: lightgray;
+    color: #035D79;
+    border: 2px solid #035D79;
+}

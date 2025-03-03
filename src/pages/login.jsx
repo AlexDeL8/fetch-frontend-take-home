@@ -44,25 +44,27 @@ const Login = () => {
     }
 
     return (
-        <div id="loginContainer">
-            <Link className="routerLink" to="/">&lt; Go Back</Link>
-            <Heading size={2} text="Enter your login information" />
-            <Input 
-                labelText="Name: " 
-                type="text" 
-                name="loginName" 
-                placeholderText="e.g. John Doe" 
-                required={true} 
-                action={setLoginName} />
-            <Input 
-                labelText="Email: " 
-                type="email" 
-                name="loginEmail" 
-                placeholderText="e.g. example@gmail.com" 
-                required={true} 
-                action={setLoginEmail} />
-            <Button isPrimary={true} text="Login" onClick={() => hanldeLogin()} />
-            <ErrorText message={loginError} />
+        <div className="centeredContainer">
+            <div className="centeredContent">
+                <Link className="routerLink" to="/">&lt; Go Back</Link>
+                <Heading size={2} text="Enter your login information" />
+                <Input
+                    labelText="Name: "
+                    type="text"
+                    name="loginName"
+                    placeholderText="e.g. John Doe"
+                    required={true}
+                    action={setLoginName} />
+                <Input
+                    labelText="Email: "
+                    type="email"
+                    name="loginEmail"
+                    placeholderText="e.g. example@gmail.com"
+                    required={true}
+                    action={setLoginEmail} />
+                <Button isPrimary={true} text="Login" onClick={() => hanldeLogin()} />
+                <ErrorText message={loginError} />
+            </div>
         </div>
     )
 }

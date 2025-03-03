@@ -1,3 +1,4 @@
+import './components.css'
 import React from 'react'
 
 const Input = ({
