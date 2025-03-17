@@ -12,10 +12,12 @@ const Dashboard = () => {
         <>
         {/* TODO: Need to update how tabs are switched using React Router */}
             <Navbar activeTab={activeTab} switchTab={setActiveTab} />
-            <ErrorText message={dashboardError} />
-            { activeTab === 'search' ? <Search setError={setDashboardError} /> : 
-                activeTab === 'favorites' ? <Favorites setError={setDashboardError}/> : 
-                    null }
+            <div className='dashboardContainer'>
+                <ErrorText message={dashboardError} />
+                { activeTab === 'search' ? <Search setError={setDashboardError} /> : 
+                    activeTab === 'favorites' ? <Favorites setError={setDashboardError}/> : 
+                        null }
+            </div>
         </>
     )
 }

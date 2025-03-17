@@ -52,6 +52,7 @@ table {
 /**************************/
 /* Home Page */
 .centeredContainer {
+    background-color: #efeef1;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -72,6 +73,7 @@ table {
 }
 
 .centeredContent {
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,3 +87,19 @@ table {
 
 /**************************/
 /* Login Page */
+
+
+/**************************/
+/* Dashboard Page(s) */
+.dashboardContainer {
+    height: 100vh;
+    overflow: scroll;
+    background-color: #efeef1;
+    padding: 20px 20px 50px 20px;
+}
+
+.dashboardContainer > * {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 30px 40px 30px;
+}

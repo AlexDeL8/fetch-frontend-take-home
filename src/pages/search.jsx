@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Heading from '../components/Heading';
-
+import Filter from '../components/Filter';
 import DogItem from '../components/DogItem';
 
 const Search = ({ setError }) => {
@@ -71,21 +71,25 @@ const Search = ({ setError }) => {
     }, [pageNumber])
 
     return (
-        <div className='dashboardContainer'>
-            <div className='dashboardFilter'>Filters</div>
-            <div className='resultsContainer'>
-                <Heading size={2} text='Results:' />
-                {/* <DogItems dogs={dogObjs} /> */}
-                <ul className='dogsList'>
-                    {dogObjs.map((dog) => {
-                        return (<DogItem key={dog.id} dogObj={dog} />)
-                    })}
-                </ul>
+        <>
+            <div>
+                <div className='dashboardFilter'>
+                    Filters:
+                    <Filter label='Breed' options={{type: 'alphabetical'}}/>
+                </div>
+                <div className='resultsContainer'>
+                    <Heading size={2} text='Results:' />
+                    <ul className='dogsList'>
+                        {dogObjs.map((dog) => {
+                            return (<DogItem key={dog.id} dogObj={dog} />)
+                        })}
+                    </ul>
+                </div>
+                <div className='paginationContainer'>
+                    <div className=''>1, 2, 3, ... 10</div>
+                </div>
             </div>
-            <div className='paginationContainer'>
-                <div className=''>1, 2, 3, ... 10</div>
-            </div>
-        </div>
+        </>
     )
 }
 export default Search;

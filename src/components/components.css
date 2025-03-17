@@ -12,12 +12,28 @@
     font-weight: bold;
 }
 
+/**************************/
+/* Navbar */
+#navbarContainer {
+    padding: 8px 0px;
+}
+ 
 #navbarList {
     list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-content: center;
+    align-items: center;
+}
+
+.navItem {
+    padding: 5px 15px;
+}
+
+.navItem.activeTab {
+    background-color: lightgray;
+    border-radius: 50px;
 }
 
 /**************************/
@@ -98,4 +114,105 @@ button:hover {
     background-color: lightgray;
     color: #035D79;
     border: 2px solid #035D79;
+}
+
+/**************************/
+/* Dog List/Item */
+.dogsList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 50px;
+}
+
+.dogItem {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.dogItem:hover {
+    background-color: #035D79;
+    color: white;
+    border-color: white;
+}
+
+.dogInfo {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    row-gap: 10px;
+    padding: 20px 0px 15px 0px;
+    border-top: 3px solid #035D79;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition-property: background-color, color, border-color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in;
+}
+
+.dogItem:hover > .dogInfo {
+    color: white;
+    border-color: white;
+    background-color: #035D79;
+}
+
+.dogImgContainer {
+    width: 225px;
+    height: 225px;
+}
+
+.dogImgContainer > img {
+    float: left;
+    width:  100%;
+    height: 100%;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.dogInfoLabel {
+    font-weight: bold;
+}
+
+.dogHeading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.dogHeading > * {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+}
+
+.dogDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dogDetails > * {
+    display: flex;
+    flex-direction: row;
+}
+
+#favoriteBtn {
+    color: gold;
+    border-color: gold;
+    padding: 0;
+    width: 35px;
+    height: 35px;
+}
+
+#favoriteBtn:hover {
+    background-color: gold;
+    color: white;
 }
