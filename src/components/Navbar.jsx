@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router'
 
 import Button from './Button'
 
-const Navbar = ({ activeTab, switchTab }) => {
+const Navbar = () => {
     const handleLogout = async () => {
         try {
             const response = await fetch("https://frontend-take-home-service.fetch.com/auth/logout", {

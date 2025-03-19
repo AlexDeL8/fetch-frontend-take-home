@@ -25,6 +25,7 @@
     justify-content: space-around;
     align-content: center;
     align-items: center;
+    font-size: 1.25rem;
 }
 
 .navItem {
@@ -127,6 +128,7 @@ button:hover {
 .filter {
     display: flex;
     flex-direction: column;
+    row-gap: 5px;
     max-width: 100px;
 }
 
