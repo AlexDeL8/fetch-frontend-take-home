@@ -31,7 +31,13 @@
     padding: 5px 15px;
 }
 
-.navItem.activeTab {
+.routerLink:hover {
+    border-radius: 50px;
+    border: 2px solid lightgray;
+    margin: -2px;
+}
+
+.routerLink.active {
     background-color: lightgray;
     border-radius: 50px;
 }

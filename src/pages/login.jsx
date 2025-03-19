@@ -34,7 +34,7 @@ const Login = () => {
             if (response.status !== 200) {
                 throw new Error('Network response was not ok');
             }
-            navigateTo("/dashboard")
+            navigateTo("/dashboard/search")
         } catch (error) {
             setLoginError(error.message);
             return

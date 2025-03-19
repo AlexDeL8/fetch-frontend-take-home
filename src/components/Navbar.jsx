@@ -26,16 +26,10 @@ const Navbar = ({ activeTab, switchTab }) => {
     <div id="navbarContainer">
         <ul id="navbarList">
             <NavLink className="routerLink" to="search">
-                <li 
-                    className={activeTab === "search" ? "navItem activeTab" : "navItem"}
-                    onClick={() => switchTab('search')}
-                >Search</li>
+                <li className="navItem">Search</li>
             </NavLink>
             <NavLink className="routerLink" to="favorites">
-                <li 
-                    className={activeTab === "favorites" ? "navItem activeTab" : "navItem"}
-                    onClick={() => switchTab('favorites')}
-                >Favorites</li>
+                <li className="navItem">Favorites</li>
             </NavLink>
             <li className="navItem">
                 <Link className="routerLink" to="/">
