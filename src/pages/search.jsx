@@ -6,9 +6,13 @@ import DogItem from '../components/DogItem';
 const Search = ({ setError }) => {
     const [pageNumber, setPageNumber] = useState(1)
     const [dogObjs, setDogObjs] = useState([])
+
+    const addFavorite = ((dogObj) => {
+        console.log(dogObj)
+    })
+
     useEffect(() => {
         const abortController = new AbortController()
-
         const fetchDogIds = async () => {
             try {
                 // from is a search param, where if we're getting 15 per page (pageNumber * 15 = top bound)
@@ -74,19 +78,19 @@ const Search = ({ setError }) => {
         <>
             <div>
                 <div className='dashboardFilter'>
-                    Filters:
+                    <Heading size={3} text='Filters:' />
                     <Filter label='Breed' options={{type: 'alphabetical'}}/>
                 </div>
                 <div className='resultsContainer'>
                     <Heading size={2} text='Results:' />
                     <ul className='dogsList'>
                         {dogObjs.map((dog) => {
-                            return (<DogItem key={dog.id} dogObj={dog} />)
+                            return (<DogItem key={dog.id} dogObj={dog} addFavorite={addFavorite} />)
                         })}
                     </ul>
                 </div>
                 <div className='paginationContainer'>
-                    <div className=''>1, 2, 3, ... 10</div>
+                    <div className=''>Prev : Next</div>
                 </div>
             </div>
         </>

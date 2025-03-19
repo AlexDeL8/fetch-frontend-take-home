@@ -117,6 +117,14 @@ button:hover {
 }
 
 /**************************/
+/* Filter */
+.filter {
+    display: flex;
+    flex-direction: column;
+    max-width: 100px;
+}
+
+/**************************/
 /* Dog List/Item */
 .dogsList {
     display: flex;

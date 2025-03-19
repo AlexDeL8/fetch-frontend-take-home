@@ -2,7 +2,7 @@ import React from 'react'
 
 const Filter = ({ label, selectName, options }) => {
   return (
-    <div>
+    <div className='filter'>
         <label htmlFor={selectName}>{label}</label>
         {options.type === 'alphabetical' ? 
         <select name={selectName} className='filterDropdown'>

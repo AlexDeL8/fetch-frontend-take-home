@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, NavLink } from 'react-router'
 
 import Button from './Button'
 
@@ -25,18 +25,18 @@ const Navbar = ({ activeTab, switchTab }) => {
     return (
     <div id="navbarContainer">
         <ul id="navbarList">
-            <Link className="routerLink" to="search">
+            <NavLink className="routerLink" to="search">
                 <li 
                     className={activeTab === "search" ? "navItem activeTab" : "navItem"}
                     onClick={() => switchTab('search')}
                 >Search</li>
-            </Link>
-            <Link className="routerLink" to="favorites">
+            </NavLink>
+            <NavLink className="routerLink" to="favorites">
                 <li 
                     className={activeTab === "favorites" ? "navItem activeTab" : "navItem"}
                     onClick={() => switchTab('favorites')}
                 >Favorites</li>
-            </Link>
+            </NavLink>
             <li className="navItem">
                 <Link className="routerLink" to="/">
                     <Button 
