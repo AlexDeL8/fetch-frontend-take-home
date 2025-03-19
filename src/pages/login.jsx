@@ -46,7 +46,7 @@ const Login = () => {
     return (
         <div className="centeredContainer">
             <div className="centeredContent">
-                <Link className="routerLink" to="/">&lt; Go Back</Link>
+                <Link className="routerLink" to="/">← Go Back</Link>
                 <Heading size={2} text="Enter your login information" />
                 <Input
                     labelText="Name: "

@@ -9,6 +9,7 @@ import Search from './pages/search';
 import Favorites from './pages/favorites';
 import RootLayout from './layout/RootLayout';
 import DashboardLayout from './layout/DashboardLayout';
+import Error from './pages/error';
 
 const App = () => {
     const router = createBrowserRouter(
@@ -20,6 +21,7 @@ const App = () => {
                     <Route path='search' element={<Search />} />
                     <Route path='favorites' element={<Favorites />} />
                 </Route>
+                <Route path='*' element={<Error />} />
             </Route>
         )
     )

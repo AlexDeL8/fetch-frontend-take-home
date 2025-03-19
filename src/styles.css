@@ -50,7 +50,7 @@ table {
 }
 
 /**************************/
-/* Home Page */
+/* Home/Login Page */
 .centeredContainer {
     background-color: #efeef1;
     height: 100vh;
@@ -86,10 +86,6 @@ table {
 }
 
 /**************************/
-/* Login Page */
-
-
-/**************************/
 /* Dashboard Page(s) */
 .dashboardContainer {
     height: 100vh;
@@ -106,4 +102,16 @@ table {
 
 .resultsContainer > h1, h2, h3 {
     margin: 15px 0px;
+}
+
+/**************************/
+/* Error Page */
+.pageError {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+    height: 100vh;
+    font-size: 2rem;
 }
