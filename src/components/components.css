@@ -22,10 +22,43 @@
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.25rem;
+}
+
+#navbarList:first-child {
+    margin-left: 100px;
+}
+
+#navbarList:last-child {
+    margin-right: 100px;
+}
+
+#navLogoContainer {
+    height: 30px;
+    width: 30px;
+}
+
+#navLogoContainer > * {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#navLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 25px;
+    flex-grow: 2;
+    margin-left: 135px;
+}
+
+#logoutSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 25px;
 }
 
 .navItem {

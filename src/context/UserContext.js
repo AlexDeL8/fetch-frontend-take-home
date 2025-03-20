@@ -1,10 +1,18 @@
 import { createContext } from "react";
 
-// TODO: Might not be needed
 const UserContext = createContext({
-    userName: ['', () => {}],
-    userEmail: ['', () => {}],
-    userFavorites: [[], () => {}]
+    name: {
+        value: '', 
+        set: () => {}
+    },
+    email: {
+        value: '', 
+        set: () => {}
+    },
+    favorites: {
+        value: [], 
+        set: () => {}
+    }
 });
 
 export default UserContext;
