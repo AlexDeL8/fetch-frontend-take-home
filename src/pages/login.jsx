@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate, useOutletContext } from 'react-router';
 
 import Heading from '../components/Heading';
 import Input from '../components/Input';
@@ -10,6 +10,7 @@ const Login = () => {
     const [loginName, setLoginName] = useState('')
     const [loginEmail, setLoginEmail] = useState('')
     const [loginError, setLoginError] = useState(null)
+    const userContext = useOutletContext()
     const navigateTo = useNavigate()
 
     const hanldeLogin = async () => {
@@ -34,6 +35,8 @@ const Login = () => {
             if (response.status !== 200) {
                 throw new Error('Network response was not ok');
             }
+            userContext.name.setUserName(loginName)
+            userContext.email.setUserEmail(loginEmail)
             navigateTo("/dashboard/search")
         } catch (error) {
             setLoginError(error.message);
