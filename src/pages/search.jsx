@@ -3,20 +3,38 @@ import Heading from '../components/Heading';
 import Filter from '../components/Filter';
 import DogItem from '../components/DogItem';
 
-const Search = ({ setError }) => {
+const Search = () => {
+    const MAX_ITEMS = 10000
+    const ITEMS_PER_PAGE = 50
     const [pageNumber, setPageNumber] = useState(1)
+    const [breedOrder, setBreedOrder] = useState('asc')
     const [dogObjs, setDogObjs] = useState([])
 
+    const pageNav = ((direction) => {
+        if(pageNumber + direction < 1 || pageNumber + direction > MAX_ITEMS/ITEMS_PER_PAGE) {
+            return
+        }
+        setPageNumber(prev => prev + direction)
+    })
     const addFavorite = ((dogObj) => {
         console.log(dogObj)
     })
 
     useEffect(() => {
         const abortController = new AbortController()
+        
+        const dogSearchUrl = new URL('https://frontend-take-home-service.fetch.com/dogs/search')
+        var params = {
+            size: ITEMS_PER_PAGE, 
+            from: (pageNumber - 1) * ITEMS_PER_PAGE,
+            sort: `breed:${breedOrder}`
+        }
+        dogSearchUrl.search = new URLSearchParams(params).toString();
+
         const fetchDogIds = async () => {
             try {
-                // from is a search param, where if we're getting 15 per page (pageNumber * 15 = top bound)
-                const response = await fetch('https://frontend-take-home-service.fetch.com/dogs/search?size=15&sort=breed:asc', {
+                // from is a search param, where if we're getting 25 per page (pageNumber * 15 = where to start FROM)
+                const response = await fetch(dogSearchUrl, {
                     method: 'GET',
                     credentials: "include",
                     headers: {
@@ -40,7 +58,6 @@ const Search = ({ setError }) => {
 
         const fetchDogs = async (dogIds) => {
             try {
-                // from is a search param, where if we're getting 15 per page (pageNumber * 15 = top bound)
                 const response = await fetch('https://frontend-take-home-service.fetch.com/dogs', {
                     method: 'POST',
                     credentials: "include",
@@ -70,17 +87,23 @@ const Search = ({ setError }) => {
                 fetchDogs(res)
             })
             .catch((error) => {
-                setError(error)
+                console.log(error)
             })
-    }, [pageNumber])
+    }, [pageNumber, breedOrder])
 
     return (
         <>
             <div>
                 <div className='dashboardFilter'>
                     <Heading size={3} text='Filters:' />
-                    <Filter label='Breed' options={{type: 'alphabetical'}}/>
+                    <Filter 
+                        label='Breed' 
+                        selectName='breedOrder' 
+                        options={{type: 'alphabetical'}}
+                        currentValue={breedOrder} 
+                        setStateValue={setBreedOrder} />
                 </div>
+                {/* TODO: GROUP RESULTS AND PAGINATION TOGETHER INTO A COMPONENT */}
                 <div className='resultsContainer'>
                     <Heading size={2} text='Results:' />
                     <ul className='dogsList'>
@@ -90,7 +113,13 @@ const Search = ({ setError }) => {
                     </ul>
                 </div>
                 <div className='paginationContainer'>
-                    <div className=''>Prev : Next</div>
+                    <div 
+                        className='paginationNav'
+                        onClick={() => pageNav(-1)}>← Prev</div> 
+                    : 
+                    <div 
+                        className='paginationNav'
+                        onClick={() => pageNav(1)}>Next →</div>
                 </div>
             </div>
         </>

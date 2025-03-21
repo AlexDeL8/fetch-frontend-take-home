@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, NavLink } from 'react-router'
+import { Link, NavLink, useLocation } from 'react-router'
 
 import Button from './Button'
 import UserContext from '../context/UserContext'
@@ -7,7 +7,9 @@ import PawIcon from '../assets/PawIcon.svg'
 
 const Navbar = () => {
     const userContext = useContext(UserContext)    
-    const greetingName = userContext.name.value.charAt(0).toUpperCase() + userContext.name.value.slice(1);
+    const { state } = useLocation()
+    const greetingName = state.name.charAt(0).toUpperCase() + state.name.slice(1);
+
     const handleLogout = async () => {
         try {
             const response = await fetch("https://frontend-take-home-service.fetch.com/auth/logout", {

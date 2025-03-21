@@ -8,13 +8,15 @@ const DogItem = ({ dogObj, addFavorite }) => {
 
   return (
     <li className='dogItem'>
-      <div className='dogImgContainer'><img src={dogObj.img} alt='Dog Image'></img></div>
+      <div className='dogImgContainer'>
+        <img src={dogObj.img} alt='Dog Image' />
+      </div>
       <div className='dogInfo'>
         <div className='dogHeading'>
           <div className='dogInfoLabel'>{dogObj.name}</div>
           <div>
             <div className='dogInfoLabel'>Age:&nbsp;</div>
-            <div>{dogObj.age}</div>
+            <div>{dogObj.age === 0 ? '< 1' : dogObj.age}</div>
           </div>
         </div>
         <div className="dogDetails">

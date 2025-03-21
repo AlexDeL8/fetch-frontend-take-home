@@ -11,6 +11,7 @@ const Login = () => {
     const [loginName, setLoginName] = useState('')
     const [loginEmail, setLoginEmail] = useState('')
     const [loginError, setLoginError] = useState(null)
+    const [favorites, setFavorites] = useState([])
     const userContext = useContext(UserContext)
     const navigateTo = useNavigate()
 
@@ -38,7 +39,7 @@ const Login = () => {
             }
             userContext.name.set(loginName)
             userContext.email.set(loginEmail)
-            navigateTo("/dashboard/search")
+            navigateTo("/dashboard/search", {state: {name: loginName}})
         } catch (error) {
             setLoginError(error.message);
             return

@@ -100,8 +100,25 @@ table {
     padding: 20px 30px 40px 30px;
 }
 
+.resultsContainer {
+    margin: 10px 0px 30px 0px;
+}
+
 .resultsContainer > h1, h2, h3 {
     margin: 15px 0px;
+}
+
+.paginationContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 15px;
+    font-size: 1.25rem;
+}
+
+.paginationNav:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 /**************************/
