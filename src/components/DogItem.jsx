@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './Button'
 
-const DogItem = ({ dogObj, addFavorite }) => {
+const DogItem = ({ dogObj, toggleFavorite, isFavorite }) => {
   if(dogObj === null || dogObj === undefined) {
     return
   }
@@ -25,7 +25,12 @@ const DogItem = ({ dogObj, addFavorite }) => {
             <div>{dogObj.breed}</div>
           </div>
           <div>
-            <Button id='favoriteBtn' isPrimary={false} text='★' onClick={() => addFavorite(dogObj)} />
+            <Button 
+              id='favoriteBtn' 
+              isPrimary={false} 
+              text='★' 
+              isActive={isFavorite}
+              onClick={() => toggleFavorite(dogObj, isFavorite)} />
           </div>
         </div>
       </div>

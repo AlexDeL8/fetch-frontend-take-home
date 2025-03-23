@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Heading from '../components/Heading';
 import Filter from '../components/Filter';
 import DogItem from '../components/DogItem';
+import UserContext from '../context/UserContext';
 
 const Search = () => {
     const MAX_ITEMS = 10000
@@ -9,6 +10,7 @@ const Search = () => {
     const [pageNumber, setPageNumber] = useState(1)
     const [breedOrder, setBreedOrder] = useState('asc')
     const [dogObjs, setDogObjs] = useState([])
+    const userContext = useContext(UserContext)
 
     const pageNav = ((direction) => {
         if(pageNumber + direction < 1 || pageNumber + direction > MAX_ITEMS/ITEMS_PER_PAGE) {
@@ -16,8 +18,24 @@ const Search = () => {
         }
         setPageNumber(prev => prev + direction)
     })
-    const addFavorite = ((dogObj) => {
-        console.log(dogObj)
+
+    const toggleFavorite = ((dogObj, isFavorite) => {
+        if(isFavorite) {
+            const currentFav = userContext.favorites.value
+            const filteredFav = currentFav.filter((fav) => fav.id !== dogObj.id)
+            userContext.favorites.set(filteredFav)
+        } else {
+            userContext.favorites.set(prev => [...prev, dogObj])
+        }
+    })
+
+    const searchFavorites = ((dogId) => {
+        userContext.favorites.value.forEach((fav) => {
+            if(fav.id === dogId) {
+                return true
+            }
+        })
+        return false;
     })
 
     useEffect(() => {
@@ -108,7 +126,11 @@ const Search = () => {
                     <Heading size={2} text='Results:' />
                     <ul className='dogsList'>
                         {dogObjs.map((dog) => {
-                            return (<DogItem key={dog.id} dogObj={dog} addFavorite={addFavorite} />)
+                            return (<DogItem 
+                                    key={dog.id} 
+                                    dogObj={dog} 
+                                    toggleFavorite={toggleFavorite}
+                                    isFavorite={searchFavorites(dog.id)} />)
                         })}
                     </ul>
                 </div>
