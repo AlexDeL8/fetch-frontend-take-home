@@ -6,7 +6,6 @@ import Results from '../components/Results';
 
 const Favorites = () => {
     const userContext = useContext(UserContext)
-    const [pageNumber, setPageNumber] = useState(1)
 
     return (
         <div>
@@ -18,9 +17,7 @@ const Favorites = () => {
             </div>
             <Results 
                 headingText='Favorites: '
-                resultsList={userContext.favorites.value} 
-                pageNumber={pageNumber} 
-                setPageNumber={setPageNumber} />
+                resultsList={userContext.favorites.value} />
         </div>
     )
 }

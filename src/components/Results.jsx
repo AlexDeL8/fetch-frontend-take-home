@@ -6,8 +6,8 @@ import UserContext from '../context/UserContext'
 const Results = ({ 
         headingText, 
         resultsList, 
-        pageNumber,
-        setPageNumber
+        pageNumber=null,
+        setPageNumber=null
      }) => {
     const MAX_ITEMS = 10000
     const ITEMS_PER_PAGE = 50
@@ -41,11 +41,11 @@ const Results = ({
                                 key={dog.id} 
                                 dogObj={dog} 
                                 toggleFavorite={() => toggleFavorite(dog)} 
-                                isFavorite={false} />)
+                                isFavorite={userContext.favorites.value.some(favObj => favObj.id === dog.id)} />)
                     })}
                 </ul>
             </div>
-            <div className='paginationContainer'>
+            {pageNumber ? <div className='paginationContainer'>
                 <div 
                     className='paginationNav'
                     onClick={() => pageNav(-1)}>← Prev</div> 
@@ -53,7 +53,9 @@ const Results = ({
                 <div 
                     className='paginationNav'
                     onClick={() => pageNav(1)}>Next →</div>
-            </div>
+            </div> 
+            :
+            null}
         </>
     )
 }
