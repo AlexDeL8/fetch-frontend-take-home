@@ -30,7 +30,7 @@ const DogItem = ({ dogObj, toggleFavorite, isFavorite }) => {
               isPrimary={false} 
               text='★' 
               isActive={isFavorite}
-              onClick={() => toggleFavorite(dogObj, isFavorite)} />
+              onClick={toggleFavorite} />
           </div>
         </div>
       </div>

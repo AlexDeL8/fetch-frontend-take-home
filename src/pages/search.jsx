@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Heading from '../components/Heading';
 import Filter from '../components/Filter';
-import DogItem from '../components/DogItem';
 import UserContext from '../context/UserContext';
+import Results from '../components/Results';
 
 const Search = () => {
     const MAX_ITEMS = 10000
@@ -10,33 +10,6 @@ const Search = () => {
     const [pageNumber, setPageNumber] = useState(1)
     const [breedOrder, setBreedOrder] = useState('asc')
     const [dogObjs, setDogObjs] = useState([])
-    const userContext = useContext(UserContext)
-
-    const pageNav = ((direction) => {
-        if(pageNumber + direction < 1 || pageNumber + direction > MAX_ITEMS/ITEMS_PER_PAGE) {
-            return
-        }
-        setPageNumber(prev => prev + direction)
-    })
-
-    const toggleFavorite = ((dogObj, isFavorite) => {
-        if(isFavorite) {
-            const currentFav = userContext.favorites.value
-            const filteredFav = currentFav.filter((fav) => fav.id !== dogObj.id)
-            userContext.favorites.set(filteredFav)
-        } else {
-            userContext.favorites.set(prev => [...prev, dogObj])
-        }
-    })
-
-    const searchFavorites = ((dogId) => {
-        userContext.favorites.value.forEach((fav) => {
-            if(fav.id === dogId) {
-                return true
-            }
-        })
-        return false;
-    })
 
     useEffect(() => {
         const abortController = new AbortController()
@@ -121,28 +94,11 @@ const Search = () => {
                         currentValue={breedOrder} 
                         setStateValue={setBreedOrder} />
                 </div>
-                {/* TODO: GROUP RESULTS AND PAGINATION TOGETHER INTO A COMPONENT */}
-                <div className='resultsContainer'>
-                    <Heading size={2} text='Results:' />
-                    <ul className='dogsList'>
-                        {dogObjs.map((dog) => {
-                            return (<DogItem 
-                                    key={dog.id} 
-                                    dogObj={dog} 
-                                    toggleFavorite={toggleFavorite}
-                                    isFavorite={searchFavorites(dog.id)} />)
-                        })}
-                    </ul>
-                </div>
-                <div className='paginationContainer'>
-                    <div 
-                        className='paginationNav'
-                        onClick={() => pageNav(-1)}>← Prev</div> 
-                    : 
-                    <div 
-                        className='paginationNav'
-                        onClick={() => pageNav(1)}>Next →</div>
-                </div>
+                <Results 
+                    headingText='Results: ' 
+                    resultsList={dogObjs} 
+                    pageNumber={pageNumber} 
+                    setPageNumber={setPageNumber} />
             </div>
         </>
     )
