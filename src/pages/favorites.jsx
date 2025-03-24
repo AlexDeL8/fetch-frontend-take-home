@@ -39,15 +39,11 @@ const Favorites = () => {
                 if (error.name !== 'AbortError') {
                     throw new Error(error.message)
                 }
-            } finally {
-                // TODO: REMOVE FINALLYS
-                console.log('fetchDogMatchId finally')
             }
         }
 
         fetchDogMatchId()
             .then((res) => {
-                console.log(res)
                 userContext.match.set(...userContext.favorites.value.filter((favObj) => favObj.id === res))
             })
             .catch((error) => {

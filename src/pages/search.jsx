@@ -42,8 +42,6 @@ const Search = () => {
                 if (error.name !== 'AbortError') {
                     throw new Error(error.message)
                 }
-            } finally {
-                console.log('fetchDogIds finally')
             }
         }
 
@@ -67,8 +65,6 @@ const Search = () => {
                 if (error.name !== 'AbortError') {
                     throw new Error(error.message)
                 }
-            } finally {
-                console.log('fetchDogs finally')
             }
         }
 

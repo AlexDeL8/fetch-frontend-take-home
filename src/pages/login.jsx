@@ -43,8 +43,6 @@ const Login = () => {
         } catch (error) {
             setLoginError(error.message);
             return
-        } finally {
-          console.log("login finally")
         }
     }
 
