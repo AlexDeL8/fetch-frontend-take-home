@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Heading from '../components/Heading';
 import Filter from '../components/Filter';
-import UserContext from '../context/UserContext';
 import Results from '../components/Results';
 
 const Search = () => {
-    const MAX_ITEMS = 10000
     const ITEMS_PER_PAGE = 50
     const [pageNumber, setPageNumber] = useState(1)
     const [breedOrder, setBreedOrder] = useState('asc')

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, NavLink, useLocation } from 'react-router'
+import { Link, NavLink } from 'react-router'
 
 import Button from './Button'
 import UserContext from '../context/UserContext'

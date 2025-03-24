@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Heading from '../components/Heading';
 import UserContext from '../context/UserContext';
 import Button from '../components/Button';
