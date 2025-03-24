@@ -12,6 +12,10 @@ const UserContext = createContext({
     favorites: {
         value: [], 
         set: () => {}
+    },
+    match: {
+        value: null,
+        set: () => {}
     }
 });
 

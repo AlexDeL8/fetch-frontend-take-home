@@ -121,6 +121,15 @@ table {
     cursor: pointer;
 }
 
+#perfectMatchContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    row-gap: 20px;
+}
+
 /**************************/
 /* Error Page */
 .pageError {

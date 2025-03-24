@@ -62,7 +62,6 @@ const Search = () => {
                     throw new Error('Network response was not ok');
                 }
                 const result = await response.json()
-                console.log(result)
                 setDogObjs(result)
             } catch (error) {
                 if (error.name !== 'AbortError') {

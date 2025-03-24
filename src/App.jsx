@@ -9,6 +9,7 @@ const App = () => {
     const [userName, setUserName] = useState('')
     const [userEmail, setUserEmail] = useState('')
     const [userFavorites, setUserFavorites] = useState([])
+    const [userMatch, setUserMatch] = useState(null)
     const defaultUserContext = {
         name: {
             value: userName,
@@ -21,6 +22,10 @@ const App = () => {
         favorites: {
             value: userFavorites,
             set: setUserFavorites
+        },
+        match: {
+            value: userMatch,
+            set: setUserMatch
         }
     }
     return (
